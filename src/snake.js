@@ -11,6 +11,7 @@
   var statusEl = document.getElementById('status');
   var pauseBtn = document.getElementById('pause-btn');
   var restartBtn = document.getElementById('restart-btn');
+  var gridLinesToggle = document.getElementById('grid-lines-toggle');
   var controlButtons = Array.prototype.slice.call(document.querySelectorAll('.ctrl'));
 
   function indexFromPoint(point) {
@@ -68,6 +69,10 @@
     pauseBtn.textContent = state.paused ? 'Resume' : 'Pause';
   }
 
+
+  function setGridLinesVisible(isVisible) {
+    grid.classList.toggle('hide-grid', !isVisible);
+  }
   function setDirection(direction) {
     queuedDirection = direction;
   }
@@ -130,6 +135,12 @@
   document.addEventListener('keydown', onKeydown);
   pauseBtn.addEventListener('click', togglePause);
   restartBtn.addEventListener('click', restart);
+  if (gridLinesToggle) {
+    setGridLinesVisible(gridLinesToggle.checked);
+    gridLinesToggle.addEventListener('change', function () {
+      setGridLinesVisible(gridLinesToggle.checked);
+    });
+  }
   controlButtons.forEach(function (button) {
     button.addEventListener('click', onControlClick);
   });

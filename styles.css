@@ -75,6 +75,19 @@ body {
   display: flex;
   gap: 0.5rem;
   margin-bottom: 0.75rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.grid-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.95rem;
+}
+
+.grid-toggle input {
+  margin: 0;
 }
 
 button {
@@ -118,4 +131,8 @@ button:focus-visible {
     margin-left: auto;
     margin-right: auto;
   }
+}
+
+.game-grid.hide-grid .cell {
+  border: none;
 }
